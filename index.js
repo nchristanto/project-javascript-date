@@ -1,49 +1,67 @@
-// Set the global date 
-let time = new Date()
-let hours = time.getHours()
-let minutes = time.getMinutes()
-let seconds = time.getSeconds()
+const digitalClock = () => {
 
-// Display clock
-const clock = () => {
-    let time = new Date()
-    let hours = time.getHours()
-    let minutes = time.getMinutes()
-    let seconds = time.getSeconds()
+    let myDate = new Date()
+    let year = myDate.getYear()
 
-    document.querySelectorAll(".clock")[0].innerHTML = timeToday(hours) + ":" + timeToday(minutes) + ":" + timeToday(seconds)
-}
-
-
-const timeToday = (digitHours) => {
-    if (digitHours < 10) {
-        digitHours = "0" + digitHours
+    // Year starts at 1900
+    if (year < 1000) {
+        year += 1900
     }
-    return digitHours;
-}
 
-setInterval(clock, 1000);
+    // Get the current days and months based on date
+    let day = myDate.getDay()
+    let month = myDate.getMonth()
+    let currentMonth = myDate.getDate()
+    // Array of days and months
+    let daysArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-// Display name of the hours
-const displayNameTheHours = () => {
-    
-    document.getElementsById("name-the-hours") = nameTheHours(hours)
-}
-
-// Name the hours on the clock
-const nameTheHours = (hours) => {
+    // Get current hours, minutes, and second based on date
+    let h = myDate.getHours()
+    let currentHours = myDate.getHours()
+    let m = myDate.getMinutes()
+    let s = myDate.getSeconds()
     let title = ""
-    if (hours >= 6 && hours <= 12) {
+
+    // Function name the hour
+    if (currentHours >= 6 && currentHours  <= 12) {
         title = "Good Morning";
-    } else if (hours >= 13 && hours <= 17) {
+    } else if (currentHours  >= 13 && currentHours  <= 17) {
         title = "Good Afternoon";
-    } else if (hours >= 18 && hours <= 22) {
+    } else if (currentHours  >= 18 && currentHours  <= 22) {
         title = "Good Evening";
     } else {
         title = "Good Night"
     }
-    return title
+
+    // Formating clock
+    if (h < 10) {
+        h = "0" + h
+    }
+    if (m < 10) {
+        m = "0" + m
+    }
+    if (s < 10) {
+        s = "0" + s
+    }
+
+    // Display name the hours
+    nameTheHoursDisplay = document.getElementById("name-the-hours");
+    nameTheHoursDisplay.textContent = title;
+
+    // Display days 
+    clockDays = document.getElementById("days");
+    clockDays.textContent = `${daysArray[day]}`
+
+    // Display date
+    clockDate = document.getElementById("date");
+    clockDate.textContent = `${monthsArray[month]} ${currentMonth} ${year}`;
+
+    // Display clock
+    clockTime = document.getElementById("clock");
+    clockTime.textContent = `${h}:${m}:${s}`;
+
+    setInterval("digitalClock()", 1000);
 }
 
-// Test case base on hours
-console.log(nameTheHours(hours))
+digitalClock()
