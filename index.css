@@ -1,4 +1,28 @@
-.clock {
-    text-align: center; 
-    font-size: 3rem; 
+html, body {
+    line-height: 1;
+    margin: 0px;
+
 }
+
+
+
+.date-container {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 50px;
+    padding-top: 290px;   
+    text-align: bottom; 
+    font-size: 3.5rem; 
+    color: #fff;
+    background-position: center center;
+    background-size: cover; 
+    position: fixed; 
+    overflow: hidden;
+    height: 100%; 
+    width: 100%;
+    background-image: url('/images/grand-canyon.jpg');
+    background-color: rgba(0,0,0,.5);
+    
+
+    }
+
+

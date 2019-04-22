@@ -11,10 +11,10 @@ const digitalClock = () => {
     // Get the current days and months based on date
     let day = myDate.getDay()
     let month = myDate.getMonth()
-    let currentMonth = myDate.getDate()
+    let currentDate = myDate.getDate()
     // Array of days and months
-    let daysArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    let monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let daysName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let monthsName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
     // Get current hours, minutes, and second based on date
     let h = myDate.getHours()
@@ -45,14 +45,14 @@ const digitalClock = () => {
         s = "0" + s
     }
 
-    // Display name the hours
-    document.getElementById("name-the-hours").textContent = title
-
     // Display days 
-    document.getElementById("days").innerHTML = `${daysArray[day]}`
+    document.getElementById("days").innerHTML = `${daysName[day]}`
 
     // Display date
-    document.getElementsByClassName("date")[0].innerHTML = `${monthsArray[month]} ${currentMonth} ${year}`
+    document.getElementsByClassName("date")[0].innerHTML = `${monthsName[month]} ${currentDate} ${year}`
+
+    // Display name the hours
+    document.getElementById("name-the-hours").textContent = title
 
     // Display clock
     document.getElementById("clock").innerHTML = `${h}:${m}:${s}`
