@@ -46,20 +46,16 @@ const digitalClock = () => {
     }
 
     // Display name the hours
-    nameTheHoursDisplay = document.getElementById("name-the-hours");
-    nameTheHoursDisplay.textContent = title;
+    document.getElementById("name-the-hours").textContent = title
 
     // Display days 
-    clockDays = document.getElementById("days");
-    clockDays.textContent = `${daysArray[day]}`
+    document.getElementById("days").innerHTML = `${daysArray[day]}`
 
     // Display date
-    clockDate = document.getElementById("date");
-    clockDate.textContent = `${monthsArray[month]} ${currentMonth} ${year}`;
+    document.getElementsByClassName("date")[0].innerHTML = `${monthsArray[month]} ${currentMonth} ${year}`
 
     // Display clock
-    clockTime = document.getElementById("clock");
-    clockTime.textContent = `${h}:${m}:${s}`;
+    document.getElementById("clock").innerHTML = `${h}:${m}:${s}`
 
     setInterval("digitalClock()", 1000);
 }
